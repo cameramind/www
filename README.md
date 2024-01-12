@@ -103,3 +103,8 @@ Co istotne nie jest to prosty model, bo zawiera w sobie:
 4. Roczna/miesięczna subskrypcja
 
 w ten sposób będę mógł dostosować do rynku i do potrzeb klientów
+
+## menu
+
++ [edit](https://github.com/cameramind/www/edit/main/README.md)
++ [git](https://github.com/cameramind)
