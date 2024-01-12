@@ -1,6 +1,9 @@
 # [cameramind.com](https://www.cameramind.com/)
 
-CameraMind - Detection and Notification
++ [CameraMonit - Surveillance Integration](http://www.cameramonit.com)
++ [VoCo.Cam - Voice Controlled Camera](http://www.vococam.com)
++ [CameraMind - Detection and Notification](http://www.cameramind.com)
++ [Do.Camera - From Vision to Action](http://www.docamera.com)
 
 ![obraz](https://github.com/cameramind/www/assets/5669657/d6377197-ba2a-4d23-a800-980aca6af41e)
 
