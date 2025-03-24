@@ -747,4 +747,185 @@
                     <p>Tel: +48 22 123 45 67</p>
                     <p>Email: info@cameramind.pl</p>
                     <p>www: cameramind.com</p>
-                    <p>Godziny pracy: Pon-Pt, 8:00-18:00
+                    <p>Godziny pracy: Pon-Pt, 8:00-18:00</p>
+                    <br>
+                    <h4>Partnerstwo i Dystrybucja</h4>
+                    <p>Oferujemy korzystne warunki współpracy dla partnerów biznesowych oraz sieci dystrybucji. Każdy partner CameraMind zyskuje dostęp do wsparcia, materiałów szkoleniowych oraz preferencyjnych cen.</p>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Imię i nazwisko</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Firma (opcjonalnie)</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="interest">Interesuje mnie</label>
+                            <select id="interest" name="interest">
+                                <option value="basic">Pakiet Podstawowy</option>
+                                <option value="professional">Pakiet Profesjonalny</option>
+                                <option value="enterprise">Pakiet Enterprise</option>
+                                <option value="custom">Rozwiązanie niestandardowe</option>
+                                <option value="partnership">Partnerstwo biznesowe</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Wiadomość</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-button">Wyślij wiadomość</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://www.cameramind.com/">CameraMind</a>
+                <a href="http://www.cameramonit.com">CameraMonit</a>
+                <a href="http://www.vococam.com">VoCo.Cam</a>
+                <a href="http://www.docamera.com">Do.Camera</a>
+                <a href="#funkcje">Funkcje</a>
+                <a href="#pakiety">Pakiety</a>
+                <a href="#kontakt">Kontakt</a>
+            </div>
+            <p class="copyright">© 2025 CameraMind Solutions Sp. z o.o. Wszystkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Kalkulator kosztów
+        document.getElementById('calculate-button').addEventListener('click', function() {
+            const package = document.getElementById('package').value;
+            const additionalCameras = parseInt(document.getElementById('cameras').value) || 0;
+            const additionalRadars = parseInt(document.getElementById('radars').value) || 0;
+            const installation = document.getElementById('installation').value;
+            const subscription = document.getElementById('subscription').value;
+            const support = document.getElementById('support').value;
+            
+            // Ceny bazowe pakietów
+            let basePrice = 0;
+            let includedCameras = 0;
+            let includedRadars = 0;
+            
+            switch (package) {
+                case 'basic':
+                    basePrice = 2499;
+                    includedCameras = 2;
+                    includedRadars = 2;
+                    break;
+                case 'professional':
+                    basePrice = 4999;
+                    includedCameras = 4;
+                    includedRadars = 4;
+                    break;
+                case 'enterprise':
+                    basePrice = 12999;
+                    includedCameras = 8;
+                    includedRadars = 8;
+                    break;
+            }
+            
+            // Ceny dodatkowego sprzętu
+            const cameraPrice = 500;
+            const radarPrice = 250;
+            
+            // Obliczanie kosztów sprzętu
+            const additionalHardwareCost = (additionalCameras * cameraPrice) + (additionalRadars * radarPrice);
+            const hardwareCost = basePrice + additionalHardwareCost;
+            
+            // Koszty instalacji
+            let installationCost = 0;
+            switch (installation) {
+                case 'basic':
+                    installationCost = 1500;
+                    break;
+                case 'full':
+                    installationCost = 2500;
+                    break;
+            }
+            
+            // Koszty wsparcia (miesięcznie)
+            let supportCost = 0;
+            switch (support) {
+                case 'extended':
+                    supportCost = 300;
+                    break;
+                case 'premium':
+                    supportCost = 600;
+                    break;
+            }
+            
+            // Koszt subskrypcji
+            let baseMonthlySub = 100;
+            if (package === 'professional') baseMonthlySub = 200;
+            if (package === 'enterprise') baseMonthlySub = 500;
+            
+            // Dodatkowe koszty za kamery w subskrypcji
+            baseMonthlySub += additionalCameras * 20;
+            
+            // Rabaty za dłuższe okresy
+            let subscriptionMultiplier = 1;
+            if (subscription === 'yearly') {
+                subscriptionMultiplier = 0.9; // 10% rabatu
+            } else if (subscription === 'biennial') {
+                subscriptionMultiplier = 0.8; // 20% rabatu
+            }
+            
+            const monthlyCost = (baseMonthlySub + supportCost) * subscriptionMultiplier;
+            
+            // Wyświetlanie wyników
+            document.getElementById('hardware-cost').textContent = hardwareCost.toLocaleString();
+            document.getElementById('services-cost').textContent = installationCost.toLocaleString();
+            document.getElementById('subscription-cost').textContent = monthlyCost.toLocaleString();
+            
+            // Całkowity koszt początkowy (sprzęt + instalacja)
+            const totalInitialCost = hardwareCost + installationCost;
+            document.querySelector('.total-price').textContent = totalInitialCost.toLocaleString() + ' PLN';
+            
+            // Pokazanie wyniku
+            document.getElementById('calculator-result').classList.add('show');
+        });
+        
+        // Obsługa formularza kontaktowego
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Tutaj normalnie byłby kod do wysyłania formularza
+            alert('Dziękujemy za wiadomość! Nasz zespół skontaktuje się z Tobą wkrótce.');
+            this.reset();
+        });
+        
+        // Płynne przewijanie do sekcji
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
